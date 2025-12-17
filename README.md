@@ -1,183 +1,139 @@
-# Pronóstico de Demanda con IA y Métodos Tradicionales
+# Intelligent Inventory Management Using Demand Forecasting and Exploratory Quantum Optimization
 
-# Demand Forecasting with AI and Traditional Methods
+This repository contains the complete codebase developed for the **Master’s Thesis (TFM)** entitled:
 
-Este proyecto forma parte del Trabajo Fin de Máster (TFM) y tiene como objetivo comparar métodos clásicos
-(SES, MA-3) con modelos de Inteligencia Artificial (Prophet, Random Forest, Keras) para pronosticar la demanda
-semanal del producto *leche entera 1L* en un supermercado (Albert Heijn, Países Bajos) (datos simulados).
+**“Intelligent Inventory Management in a Supply Chain through Scenario Simulation Using Artificial Intelligence: Application to Weekly Demand of 1-Liter Whole Milk in an Urban Retail Environment in Utrecht.”**
 
-
-This project is part of the Master's Thesis (TFM) and aims to compare classical methods (SES, MA-3) 
-with Artificial Intelligence models (Prophet, Random Forest, Keras) to forecast the weekly demand for the 1L 
-whole milk product in a supermarket (Albert Heijn, Netherlands) (simulated data).
+The project analyzes how demand forecasting accuracy affects inventory performance and explores the potential of **exploratory quantum optimization** as an emerging approach for inventory decision-making in retail supply chains.
 
 ---
 
-## Estructura del proyecto
-## Project Structure
-Pronostico
-.
-|-- README.md
-|-- data
-|   `-- demanda_semanal.csv
-|-- deep_learning
-|   |-- keras_ann.py
-|   `-- keras_utils.py
-|-- machine_learning
-|   |-- feature_engineering.py
-|   `-- random_forest.py
-|-- main.py
-|-- notebooks
-|   `-- visualizaciones.ipynb
-|-- prophet_model
-|   `-- prophet_forecast.py
-|-- requirements.txt
-|-- results
-|   |-- graficos
-|   `-- metricas
-|-- traditional_models
-|   |-- ma3_model.py
-|   `-- ses_model.py
-`-- utils
-    `-- utils.py
+## Academic Context
 
-## Instalación del entorno
-## Installing the environment
+- **Degree:** Master’s Degree in Supply Chain Management and Logistics  
+- **University:** Universidad Internacional de Valencia (VIU)  
+- **Type:** Master’s Thesis (TFM)  
+- **Author:** Benjamin Ontiveros  
+- **Year:** 2025  
 
-1. **Clona este repositorio**:
-1. **Clone this repository**:
+This repository supports the computational and empirical results presented in the Master’s Thesis.
 
+---
+
+## Repository Structure
+
+Pronostico/
+    ├── data/ # Simulated demand data (52 weeks)
+    ├── traditional_models/ # MA-3 and SES forecasting models
+    ├── prophet_model/ # Prophet demand forecasting
+    ├── deep_learning/ # ANN (Keras) forecasting models
+    ├── quantum_models/ # Classical and exploratory quantum optimization (QAOA)
+    ├── notebooks/ # Exploratory and validation notebooks
+    ├── results/ # Forecasts, metrics, plots, and CSV outputs
+    ├── utils/ # Utility and helper functions
+    ├── main.py # Main execution script
+    ├── requirements.txt # General dependencies
+    ├── requirements_tfm.txt # Dependencies used for the TFM analysis
+    ├── requirements_qaoa.txt # Dependencies for quantum optimization experiments
+    ├── README.md
+
+---
+
+## Case Study Description
+
+- **Product:** Whole milk (1 liter)  
+- **Sector:** Retail food supply chain  
+- **Environment:** Urban retail store 
+- **Time Horizon:** 52 weekly periods  
+- **Data:** Fully simulated data incorporating trend, seasonality, and stochastic variability  
+
+All datasets used in this project are **synthetic** and generated exclusively for academic purposes.
+
+---
+
+## Methodological Overview
+
+### Demand Forecasting
+
+The project compares traditional forecasting techniques with advanced Artificial Intelligence models:
+
+- Moving Average (MA-3)  
+- Simple Exponential Smoothing (SES)  
+- Prophet  
+- Random Forest  
+- Artificial Neural Networks (ANN) implemented using Keras  
+
+Forecast accuracy is evaluated using **MAE** and **RMSE**, supported by visual analysis against the simulated demand series.
+
+---
+
+### Inventory Simulation
+
+Forecast outputs are used as inputs for inventory simulation under different replenishment policies, assessing:
+
+- Stockouts  
+- Overstock  
+- Inventory accumulation  
+- Service level implications  
+
+This approach allows evaluation of how forecasting improvements translate into operational and logistical performance.
+
+---
+
+### Optimization Approaches
+
+Inventory planning decisions are addressed through multiple optimization strategies:
+
+- **Classical optimization methods:**  
+  - Brute-force optimization for reduced-scale problems  
+  - Continuous optimization using SciPy  
+
+- **Exploratory quantum optimization:**  
+  - Quantum Approximate Optimization Algorithm (QAOA)  
+  - Binary QUBO formulation  
+  - Simulation under NISQ-era constraints  
+
+The quantum optimization component is **exploratory in nature** and intended for research and methodological comparison rather than operational deployment.
+
+---
+
+## Key Contributions
+
+- Demonstrates that higher forecasting accuracy does not necessarily lead to optimal inventory performance.  
+- Quantifies trade-offs between service level, overstock, and stockout risk.  
+- Provides an applied comparison of traditional, AI-based, and exploratory quantum approaches.  
+- Contributes to academic research on intelligent inventory management in retail environments.
+
+---
+
+## Disclaimer
+
+This repository is intended **solely for academic and research purposes**.
+
+- All data are simulated.  
+- The quantum optimization module is exploratory and constrained by current NISQ hardware limitations.  
+- Results should **not** be interpreted as real-world operational recommendations.
+
+---
+
+## How to Run (Optional)
+
+1. Install the required dependencies:
 ```bash
-git clone https://github.com/Benja1512/pronostico_tfm.git
-
-
-## Crea un entorno virtual 
-## Create a virtual environment
-
-python -m venv venv
-source venv/bin/activate      # Linux/macOS
-venv\Scripts\activate         # Windows
-
-## Instala las dependencias
-## Install dependencies
-
-pip install --upgrade pip
 pip install -r requirements.txt
+Run the main execution script:
 
-## Modelos incluidos 
-## Models included
+bash
+Copiar código
+python main.py
+(Individual modules may also be executed independently.)
 
-| Tipo                    | Modelos                                          |
-| ----------------------- | ------------------------------------------------ |
-| Métodos tradicionales   | MA-3, SES (Simple Exponential Smoothing)         |
-| Inteligencia Artificial | Prophet, Random Forest, Redes Neuronales (Keras) |
+License
+This project is shared for academic reference and educational use only.
+No commercial use is intended or authorized.
 
-
-| Type | Models |
-| ----------------------- | ------------------------------------------------ |
-| Traditional Methods | MA-3, SES (Simple Exponential Smoothing) |
-| Artificial Intelligence | Prophet, Random Forest, Neural Networks (Keras) |
-
-
-## Datos 
-## Data
-
-data/demanda_semanal.csv: contiene las series de demanda semanal simulada para entrenamiento y prueba.
-
-data/demanda_semanal.csv: Contains the simulated weekly demand series for training and testing.
-
-
-## Objetivos del Proyecto
-## Project Objectives
-
-- Comparar el rendimiento de modelos clásicos y de inteligencia artificial para predecir demanda semanal.
-- Evaluar métricas como MAE y RMSE.
-- Simular decisiones de inventario basadas en los resultados de pronóstico.
-
-- Compare the performance of classical and artificial intelligence models for predicting weekly demand.
-- Evaluate metrics such as MAE and RMSE.
-- Simulate inventory decisions based on forecast results.
-
-
-## Modelos Implementados
-## Implemented Models
-
-- **MA-3**: Media móvil simple de 3 períodos.
-- **SES**: Suavizamiento exponencial simple (α configurable).
-- **Prophet**: Modelo desarrollado por Meta, ideal para series temporales con estacionalidad.
-- **Random Forest**: Ensamble de árboles de decisión, útil para capturar patrones no lineales.
-- **Keras ANN**: Red neuronal artificial con capas densas para aprendizaje supervisado.
-
-- **MA-3**: 3-period simple moving average.
-- **SES**: Simple exponential smoothing (configurable α).
-- **Prophet**: Model developed by Meta, ideal for time series with seasonality.
-- **Random Forest**: Ensemble of decision trees, useful for capturing nonlinear patterns.
-- **Keras ANN**: Artificial neural network with dense layers for supervised learning.
-
-## Ejemplo de uso rápido 
-## (Quick Start)
-
-
-```bash
-# Ejecutar el modelo tradicional SES
-python traditional_models/ses_model.py
-
-# Ejecutar Random Forest
-python machine_learning/random_forest.py
-
-# Ejecutar red neuronal
-python deep_learning/keras_ann.py
-
-```bash
-# Run the traditional SES model
-python traditional_models/ses_model.py
-
-# Run Random Forest
-python machine_learning/random_forest.py
-
-# Run the neural network
-python deep_learning/keras_ann.py
-
-
---------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------
-## Licencia
-
-Este proyecto fue desarrollado con fines académicos como parte del Trabajo Fin de Máster (VIU, 2025).  
-No se autoriza su uso comercial sin consentimiento previo del autor.
-
-## License
-
-This project was developed for academic purposes as part of the Master's Thesis (VIU, 2025).
-Commercial use is prohibited without prior consent from the author.
-
-------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------
-
-## Autor
-
-**Benjamín Ford Ontiveros Ordinola**  
-
-Correo Personal
-benjamin.ontiveros@gmail.com
-
-Correo Institucional
-bontiveroso@student.universidadviu.com
-
-Máster en Supply Chain Management y Logística - VIU (2025)
-
-
-## Author
-
-**Benjamín Ford Ontiveros Ordinola**
-
-Personal Email
-benjamin.ontiveros@gmail.com
-
-Institutional Email
-bontiveroso@student.universidadviu.com
-
-Master's Degree in Supply Chain Management and Logistics - VIU (2025)
-
--------------------------------------------------------------------------------------------------------------------
--------------------------------------------------------------------------------------------------------------------
+Author
+Benjamin Ontiveros
+Master’s Degree in Supply Chain Management and Logistics
+Universidad Internacional de Valencia (VIU) - Spain.
+email: bontiveroso@student.universidadviu.com

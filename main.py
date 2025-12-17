@@ -1,16 +1,16 @@
-# This is a sample Python script.
+from exploratory.eda_demand_plot import run_eda
+from machine_learning.random_forest import run_random_forest_forecast
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+if __name__ == "__main__":
+    print("¿Qué quieres ejecutar?")
+    print("1. Exploración de Datos (EDA)")
+    print("2. Random Forest")
 
+    opcion = input("Escribe 1 o 2: ")
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    if opcion == "1":
+        run_eda()
+    elif opcion == "2":
+        run_random_forest_forecast()
+    else:
+        print("Opción inválida.")
