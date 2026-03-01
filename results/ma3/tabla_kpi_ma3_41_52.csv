@@ -1,0 +1,4 @@
+Escenario,Stockout_total,Sobrestock_total,Nivel_servicio_%
+Base,0,2860.666666666667,100.0
+-20,0,1300.6666666666674,100.0
++20,0,4420.666666666667,100.0
