@@ -1,0 +1,6 @@
+Escenario,Tipo de Stock,Stock inicial (u),Reposición promedio semanal (u),Stockout total (u),Sobrestock total (u),Comentario breve
+OPTIMO A,Alto,80,258,0,299,"Máxima seguridad, pero con alto costo"
+OPTIMO B,Medio,50,214,0,0,Equilibrado y eficiente
+INTERMEDIO,Medio-bajo,30,172,479,0,"Riesgo controlado, pero con quiebres"
+CRITICO A,Bajo,10,0,2563,0,Rotura total de stock
+CRITICO B,Sin stock,0,65,1797,0,Peor escenario posible

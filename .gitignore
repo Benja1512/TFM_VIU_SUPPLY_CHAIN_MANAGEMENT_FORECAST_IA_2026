@@ -1,4 +1,4 @@
-# Python
+# Python cache
 __pycache__/
 *.pyc
 *.pyo
@@ -9,6 +9,7 @@ venv/
 .venv/
 env/
 ENV/
+ann_env/
 qaoa_py39/
 tfm/
 
@@ -17,12 +18,25 @@ build/
 dist/
 *.egg-info/
 
+# Scientific files
+*.npy
+*.npz
+*.pkl
+*.pickle
+
+# ML models
+*.h5
+*.ckpt
+*.pt
+*.model
+
 # Jupyter
 .ipynb_checkpoints/
 
 # OS
 .DS_Store
 Thumbs.db
+desktop.ini
 
 # IDEs
 .vscode/
